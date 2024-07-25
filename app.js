@@ -5,8 +5,12 @@ const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(express.static('views'));
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
 
 app.use(userRoutes);
 
